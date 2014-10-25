@@ -6,8 +6,9 @@ $(document).ready(function() {
 		'padding-left': '100px', 
 		'padding-top': '70px', 
 		'line-height': '24px',
-		'max-width': '800px'
+		'max-width': '800px',
+		'max-height': '695px'
 	};
 
-	$('.notepad').notepad({ css: css });
+	$('.notepad').notepad({ cssClass: 'my_jqnotepad', css: css });
 });
