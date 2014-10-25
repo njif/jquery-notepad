@@ -58,7 +58,7 @@
 
 			var el = $(ev.target);
 			var y = - el.scrollTop();
-			this.textarea.css({'background-position': '0' + y + 'px' });
+			this.textarea.css({'background-position': '0 ' + y + 'px' });
 		}
 	};
 	
