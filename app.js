@@ -1,3 +1,4 @@
 $(document).ready(function() {
-	$('.notepad').notepad();
+
+	$('.notepad').notepad({ backgroundimage: 'lines.jpg', paddingleft: 100, paddingtop: 70, lineheight: 24 });
 });

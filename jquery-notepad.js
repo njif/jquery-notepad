@@ -1,9 +1,12 @@
 ;(function($) {
 
 	var defaults = {
-		'lineheight': 16,
+		lineheight: 16,
 	  	rows: 10,
-	  	cols: 30				
+	  	cols: 30,
+	  	paddingleft: 0,
+	  	paddingtop: 0,
+	  	backgroundimage: 'none'
 	};
  
 	function Notepad(holder, options) {
@@ -30,13 +33,21 @@
 			this.textarea.val(text);
 		},
 
-		_initStyles: function() {
-
-			var svg = this._createSvgLines();			
-			var bi = 'url("data:image/svg+xml;utf8,' + svg + '")';
+		_initStyles: function() {	
+			var bi = this._getBackgroundImageValue();
 			var lh = this.config.lineheight + 'px';
+			var pdl = this.config.paddingleft + 'px' ;
+			var pdt = this.config.paddingtop + 'px' ;
 
-			this.textarea.css({ 'background-image': bi, 'line-height': lh });
+			this.textarea.css({ 'background-image': bi, 'line-height': lh, 'padding-left': pdl , 'padding-top': pdt });
+		},
+
+		_getBackgroundImageValue: function() {
+
+			if (this.config.backgroundimage === 'none')
+				return 'url("data:image/svg+xml;utf8,' + this._createSvgLines() + '")';
+
+			return 'url("' + this.config.backgroundimage + '")';
 		},
 
 		_createSvgLines: function() {
