@@ -110,14 +110,12 @@
 
 		_attachEvents: function() {
 
-			this._controls.textarea.on('scroll', this._onScroll.bind(this));
-		},
+			this._controls.textarea.on('scroll', function(ev) {
 
-		_onScroll: function(ev) {
-
-			var el = $(ev.target || ev.srcElement);
-			var y = - el.scrollTop();
-			this._controls.textarea.css({ 'background-position': '0 ' + y + 'px' });
+				var el = $(ev.target || ev.srcElement);
+				var y = - el.scrollTop();
+				this._controls.textarea.css({ 'background-position': '0 ' + y + 'px' });
+			});
 		}
 	};
 	
